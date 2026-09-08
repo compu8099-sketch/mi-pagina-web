@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuestra Familia</title>
+  <style>
+    /* Global Settings & Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-x: hidden;
+    }
+
+    /* Animación de fondo */
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Encabezado */
+    header {
+      text-align: center;
+      margin: 40px 20px 20px 20px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+      animation: fadeInDown 1s ease-out;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      opacity: 0.9;
+    }
+
+    /* Contenedor Principal */
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      margin-bottom: 50px;
+    }
+
+    /* Tarjetas Interactivas */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.3);
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    /* Seccion del Minijuego */
+    .game-section {
+      background: rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 30px;
+      margin-top: 40px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .game-board {
+      width: 100%;
+      height: 300px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      position: relative;
+      margin: 20px 0;
+      overflow: hidden;
+      border: 2px dashed rgba(255, 255, 255, 0.4);
+    }
+
+    .target {
+      width: 50px;
+      height: 50px;
+      font-size: 40px;
+      position: absolute;
+      cursor: pointer;
+      user-select: none;
+      transition: transform 0.1s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .target:active {
+      transform: scale(0.8);
+    }
+
+    .btn {
+      background: #ffffff;
+      color: #e73c7e;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .btn:hover {
+      background: #ffe6f0;
+      transform: scale(1.05);
+    }
+
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: auto;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    /* Animaciones keyframes */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>❤️ Bienvenido al Rincón de Nuestra Familia ❤️</h1>
+    <p>Un lugar donde guardamos nuestros mejores recuerdos y sonrisas.</p>
+  </header>
+
+  <div class="container">
+    <!-- Tarjetas Familiares -->
+    <div class="card-grid">
+      <div class="card">
+        <h3>📸 Galería de Momentos</h3>
+        <p>Haz clic para recordar nuestros viajes, fiestas y aventuras juntos.</p>
+      </div>
+      <div class="card">
+        <h3>🎉 Próximos Cumpleaños</h3>
+        <p>¡No olvides revisar quién cumple años este mes para celebrar juntos!</p>
+      </div>
+      <div class="card">
+        <h3>💌 Mensajes del Día</h3>
+        <p>"La familia no es algo importante, lo es todo." ¡Déjanos un saludo!</p>
+      </div>
+    </div>
+
+    <!-- Sección de Juego -->
+    <div class="game-section">
+      <h2>🎮 Minijuego: Atrapa el Corazón Familiar</h2>
+      <p>Demuestra tus reflejos. ¡Haz clic en los corazones antes de que cambien de lugar!</p>
+
+      <div style="margin-top: 15px;">
+        <button class="btn" id="start-btn" onclick="startGame()">¡Iniciar Juego!</button>
+      </div>
+
+      <div class="stats" style="margin-top: 15px;">
+        <div>Puntos: <span id="score">0</span></div>
+        <div>Tiempo: <span id="time">15</span>s</div>
+      </div>
+
+      <div class="game-board" id="game-board">
+        <div class="target" id="target" style="display: none;" onclick="catchTarget()">❤️</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Hecho con amor para la mejor familia del mundo ⓒ 2026</p>
+  </footer>
+
+  <script>
+    let score = 0;
+    let timeLeft = 15;
+    let gameInterval;
+    let timerInterval;
+    const target = document.getElementById('target');
+    const board = document.getElementById('game-board');
+    const scoreDisplay = document.getElementById('score');
+    const timeDisplay = document.getElementById('time');
+    const startBtn = document.getElementById('start-btn');
+
+    const icons = ['❤️', '💖', '⭐', '🎁', '🎂', '✨'];
+
+    function moveTarget() {
+      const boardWidth = board.clientWidth - 60;
+      const boardHeight = board.clientHeight - 60;
+
+      const randomX = Math.max(0, Math.floor(Math.random() * boardWidth));
+      const randomY = Math.max(0, Math.floor(Math.random() * boardHeight));
+      const randomIcon = icons[Math.floor(Math.random() * icons.length)];
+
+      target.innerText = randomIcon;
+      target.style.left = randomX + 'px';
+      target.style.top = randomY + 'px';
+    }
+
+    function catchTarget() {
+      score += 10;
+      scoreDisplay.innerText = score;
+      moveTarget();
+    }
+
+    function startGame() {
+      // Reiniciar variables
+      score = 0;
+      timeLeft = 15;
+      scoreDisplay.innerText = score;
+      timeDisplay.innerText = timeLeft;
+      startBtn.disabled = true;
+      startBtn.style.opacity = '0.5';
+
+      target.style.display = 'flex';
+      moveTarget();
+
+      // Mover el objetivo cada 800ms
+      gameInterval = setInterval(moveTarget, 800);
+
+      // Cuenta regresiva
+      timerInterval = setInterval(() => {
+        timeLeft--;
+        timeDisplay.innerText = timeLeft;
+
+        if (timeLeft <= 0) {
+          clearInterval(gameInterval);
+          clearInterval(timerInterval);
+          target.style.display = 'none';
+          alert('🎉 ¡Tiempo agotado! Puntuación final: ' + score + ' puntos.');
+          startBtn.disabled = false;
+          startBtn.style.opacity = '1';
+        }
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
